@@ -9,7 +9,7 @@ N = nn.Sequential(nn.Linear(1,50), nn.Sigmoid(), nn.Linear(50,1))
 
 ### Condiciones de la ecuación diferecial ordinaria
 f = lambda x, Psi: 3*x**2
-A = 0
+A = 4
 
 ### Solución a entrenar por la red neuronal
 Psi_t = lambda x: A + x * N(x)
@@ -47,7 +47,7 @@ xx = np.linspace(-1,1,100)[:, None]
 with torch.no_grad():
     yy = Psi_t(torch.Tensor(xx))
 
-yt = xx**3
+yt = xx**3 + 4
 fig, ax = plt.subplots(dpi = 100)
 ax.plot(xx, yt, label = 'True')
 ax.plot(xx, yy, '--', label= 'Neural network approximation')

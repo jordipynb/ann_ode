@@ -8,9 +8,9 @@ n_out = 3  # El número de salidas corresponde a la cantidad de ecuaciones del s
 
 # Perceptrón multicapa
 Ns = nn.Sequential(
-    nn.Linear(  3, 100, bias=True),
+    nn.Linear(n_in, 100, bias=True),
     nn.Sigmoid(),
-    nn.Linear(100, n_out, bias=True),
+    nn.Linear(100,n_out, bias=True),
 )
 Ns = Ns.double()
 
